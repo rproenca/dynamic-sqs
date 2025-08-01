@@ -1,0 +1,57 @@
+{
+  "name": "rproenca/dynamic-sqs",
+  "description": "Adds support for custom SQS payloads in Laravel",
+  "keywords": [
+    "edriving-limited",
+    "laravel",
+    "dynamic-sqs"
+  ],
+  "homepage": "https://github.com/edriving-limited/dynamic-sqs",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Keiron Lowe",
+      "email": "keiron.lowe@edriving.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.3|^7.4|^8.0|^8.1|^8.2|^8.3",
+    "aws/aws-sdk-php": "^3.269",
+    "illuminate/contracts": "^5.0|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0"
+  },
+  "require-dev": {
+    "nunomaduro/larastan": "^1.0",
+    "orchestra/testbench": "^5.0|^6.0|^7.0|^8.0",
+    "phpunit/phpunit": "^9.6",
+    "squizlabs/php_codesniffer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "eDriving\\DynamicSqs\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "eDriving\\DynamicSqs\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+    "analyse": "vendor/bin/phpstan analyse",
+    "test": "vendor/bin/phpunit",
+    "format": "vendor/bin/phpcbf"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "eDriving\\DynamicSqs\\DynamicSqsServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
